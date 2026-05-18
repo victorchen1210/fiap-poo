@@ -19,70 +19,84 @@ public class Main {
 
         Pet meuPet = new Pet(nome, idade, tipo);
 
-        System.out.println("\n--- MEU PET ---");
+        System.out.println("\n--- MEU PET INICIAL ---");
         meuPet.exibirInfo();
 
-        // ======================================
-        // TESTES DO MÉTODO ALIMENTAR
-        // ======================================
+        
+        // TESTES DE ENCAPSULAMENTO
+       
         System.out.println("\n=========================================");
-        System.out.println("TESTANDO O MÉTODO ALIMENTAR");
+        System.out.println("TESTANDO O ENCAPSULAMENTO (GETTERS E SETTERS)");
+        System.out.println("=========================================");
+
+         
+        System.out.println("\n【TESTE 1】Usando GETTERS para ler valores:");
+        System.out.println("   Nome via getNome(): " + meuPet.getNome());
+        System.out.println("   Idade via getIdade(): " + meuPet.getIdade());
+        System.out.println("   Tipo via getTipo(): " + meuPet.getTipo());
+        System.out.println("   Energia via getEnergia(): " + meuPet.getEnergia());
+        System.out.println("   Fome via getFome(): " + meuPet.getFome());
+
+        
+        System.out.println("\n【TESTE 2】Usando SETTERS com valores VÁLIDOS:");
+        meuPet.setNome("Rex");
+        meuPet.setIdade(5);
+        meuPet.setTipo("Cachorro");
+        meuPet.setEnergia(80);
+        meuPet.setFome(30);
+        meuPet.exibirInfo();
+
+        
+        System.out.println("\n【TESTE 3】Usando SETTERS com valores INVÁLIDOS (tentando burlar):");
+        
+        System.out.println("\n   --- Tentando idade negativa: ---");
+        meuPet.setIdade(-5);  
+        
+        System.out.println("\n   --- Tentando idade maior que 30: ---");
+        meuPet.setIdade(99);   
+        
+        System.out.println("\n   --- Tentando energia negativa: ---");
+        meuPet.setEnergia(-50); 
+        
+        System.out.println("\n   --- Tentando fome negativa: ---");
+        meuPet.setFome(-20);    
+        
+        System.out.println("\n   --- Tentando energia maior que 100: ---");
+        meuPet.setEnergia(200); 
+        
+        System.out.println("\n   --- Tentando fome maior que 100: ---");
+        meuPet.setFome(150);    
+
+        
+        System.out.println("\n【TESTE 4】Verificando que valores inválidos NÃO foram alterados:");
+        meuPet.exibirInfo();
+
+        System.out.println("\n=========================================");
+        System.out.println("TESTANDO MÉTODOS COMPORTAMENTAIS COM ENCAPSULAMENTO");
         System.out.println("=========================================");
         
-        System.out.println("\n【TESTE 1】Quantidade inválida (negativo):");
-        meuPet.alimentar(-1);
+        System.out.println("\n【TESTE 5】Brincar (gasta energia, aumenta fome):");
+        meuPet.brincar();
         
-        System.out.println("\n【TESTE 2】Quantidade inválida (maior que 3):");
-        meuPet.alimentar(5);
-        
-        System.out.println("\n【TESTE 3】Quantidade válida:");
+        System.out.println("\n【TESTE 6】Alimentar com quantidade válida:");
         meuPet.alimentar(2);
         
-        System.out.println("\n【TESTE 4】Outra quantidade válida:");
-        meuPet.alimentar(1);
-
-        // ======================================
-        // TESTES DO MÉTODO PASSEAR
-        // ======================================
-        System.out.println("\n=========================================");
-        System.out.println("TESTANDO O MÉTODO PASSEAR");
-        System.out.println("=========================================");
-        
-        System.out.println("\n【TESTE 1】Tempo inválido (negativo):");
-        meuPet.passear(-10);
-        
-        System.out.println("\n【TESTE 2】Tempo inválido (maior que 60):");
-        meuPet.passear(90);
-        
-        System.out.println("\n【TESTE 3】Gastando energia para testar energia insuficiente:");
-        meuPet.brincar();
-        meuPet.brincar();
-        meuPet.brincar();
-        meuPet.brincar();
-        meuPet.brincar();
-        meuPet.brincar();
-        meuPet.brincar();
-        meuPet.brincar();
-        
-        System.out.println("\n【TESTE 4】Tempo válido mas energia insuficiente:");
-        meuPet.passear(50);
-        
-        System.out.println("\n【TESTE 5】Recuperando energia com dormir:");
-        meuPet.dormir();
-        
-        System.out.println("\n【TESTE 6】Tempo válido (dentro do limite):");
+        System.out.println("\n【TESTE 7】Passear com tempo válido:");
         meuPet.passear(30);
         
-        System.out.println("\n【TESTE 7】Mais um teste válido:");
-        meuPet.passear(15);
+        System.out.println("\n【TESTE 8】Dormir (recupera energia):");
+        meuPet.dormir();
 
-        // ======================================
-        // STATUS FINAL
-        // ======================================
+        // Status final
         System.out.println("\n=========================================");
         System.out.println("STATUS FINAL DO PET");
         System.out.println("=========================================");
         meuPet.exibirInfo();
+        
+        System.out.println("\n✅ ENCAPSULAMENTO FUNCIONANDO!");
+        System.out.println("   - Atributos são private");
+        System.out.println("   - Getters e Setters implementados");
+        System.out.println("   - Regras nos setters protegem o objeto");
 
         scanner.close();
     }
