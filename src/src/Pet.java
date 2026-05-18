@@ -7,16 +7,22 @@ public class Pet {
     private int energia;
     private int fome;
 
-    // CONSTRUTOR
+    
     public Pet(String nome, int idade, String tipo) {
         this.nome = nome;
         this.idade = idade;
         this.tipo = tipo;
         this.energia = 100;
         this.fome = 0;
+        
+        
+        System.out.println("\n✨ UM NOVO PET NASCEU! ✨");
+        System.out.println("   Nome: " + this.nome);
+        System.out.println("   Idade: " + this.idade + " anos");
+        System.out.println("   Tipo: " + this.tipo);
+        System.out.println("   Energia: " + this.energia);
+        System.out.println("   Fome: " + this.fome);
     }
-
- 
 
     public String getNome() {
         return nome;
@@ -38,14 +44,11 @@ public class Pet {
         return fome;
     }
 
-    
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    
     public void setIdade(int idade) {
-        
         if (idade < 0) {
             System.out.println("❌ ERRO: Idade não pode ser negativa! Mantendo idade anterior: " + this.idade);
         } else if (idade > 30) {
@@ -56,12 +59,10 @@ public class Pet {
         }
     }
 
-    
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
-    
     public void setEnergia(int energia) {
         if (energia < 0) {
             System.out.println("❌ ERRO: Energia não pode ser negativa! Mantendo energia anterior: " + this.energia);
@@ -73,7 +74,6 @@ public class Pet {
         }
     }
 
-    
     public void setFome(int fome) {
         if (fome < 0) {
             System.out.println("❌ ERRO: Fome não pode ser negativa! Mantendo fome anterior: " + this.fome);
@@ -85,7 +85,6 @@ public class Pet {
         }
     }
 
-    
     public void brincar() {
         System.out.println(nome + " está brincando 🐾");
         setEnergia(energia - 10);
