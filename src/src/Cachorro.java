@@ -1,9 +1,11 @@
 package src;
 
 public class Cachorro extends Pet {
-       
+    
+    
     private String raca;
-       
+    
+    // CONSTRUTOR
     public Cachorro(String nome, int idade, String tipo, Tutor tutor, String raca) {
         
         super(nome, idade, tipo, tutor);
@@ -31,6 +33,12 @@ public class Cachorro extends Pet {
         System.out.println(getNome() + " foi buscar o osso! 🦴");
         setEnergia(getEnergia() - 5);
         System.out.println("   Energia após buscar: " + getEnergia());
+    }
+    
+    
+    @Override
+    public void emitirSom() {
+        System.out.println("🐕 " + getNome() + " (Cachorro) late: AU AU AU! Woof! Woof!");
     }
     
     

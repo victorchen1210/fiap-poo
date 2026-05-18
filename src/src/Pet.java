@@ -1,7 +1,7 @@
 package src;
 
 public class Pet {
-    
+    // Atributos
     private String nome;
     private int idade;
     private String tipo;
@@ -9,7 +9,7 @@ public class Pet {
     private int fome;
     private Tutor tutor;
 
-    
+    // CONSTRUTOR
     public Pet(String nome, int idade, String tipo, Tutor tutor) {
         this.nome = nome;
         this.idade = idade;
@@ -52,7 +52,7 @@ public class Pet {
         return tutor;
     }
 
-    // SETTERS 
+    // SETTERS
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -96,6 +96,11 @@ public class Pet {
 
     public void setTutor(Tutor tutor) {
         this.tutor = tutor;
+    }
+
+    
+    public void emitirSom() {
+        System.out.println(nome + " está fazendo um som genérico de pet...");
     }
 
     // Métodos comportamentais
