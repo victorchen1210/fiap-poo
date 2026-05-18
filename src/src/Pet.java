@@ -1,12 +1,13 @@
 package src;
 
 public class Pet {
+    
     private String nome;
     private int idade;
     private String tipo;
     private int energia;
     private int fome;
-    private Tutor tutor;  
+    private Tutor tutor;
 
     
     public Pet(String nome, int idade, String tipo, Tutor tutor) {
@@ -15,7 +16,7 @@ public class Pet {
         this.tipo = tipo;
         this.energia = 100;
         this.fome = 0;
-        this.tutor = tutor;  
+        this.tutor = tutor;
         
         System.out.println("\n✨ UM NOVO PET NASCEU! ✨");
         System.out.println("   Nome: " + this.nome);
@@ -47,12 +48,11 @@ public class Pet {
         return fome;
     }
 
-    
     public Tutor getTutor() {
         return tutor;
     }
 
-    // SETTERS
+    // SETTERS 
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -94,12 +94,11 @@ public class Pet {
         }
     }
 
-    
     public void setTutor(Tutor tutor) {
         this.tutor = tutor;
     }
 
-    
+    // Métodos comportamentais
     public void brincar() {
         System.out.println(nome + " está brincando 🐾");
         setEnergia(energia - 10);
@@ -116,7 +115,7 @@ public class Pet {
     public void exibirInfo() {
         System.out.println("Pet: " + nome + " | Idade: " + idade + " | Tipo: " + tipo);
         System.out.println("   Energia: " + energia + " | Fome: " + fome);
-        System.out.println("   Tutor: " + tutor.getNome());  // ← Mostra o tutor
+        System.out.println("   Tutor: " + tutor.getNome());
     }
 
     public void alimentar(int quantidade) {
