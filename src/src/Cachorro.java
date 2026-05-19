@@ -1,6 +1,7 @@
 package src;
 
-public class Cachorro extends Pet {
+// Cachorro extends Pet E implements Brincavel
+public class Cachorro extends Pet implements Brincavel {
     private String raca;
     
     public Cachorro(String nome, int idade, String tipo, Tutor tutor, String raca) {
@@ -26,6 +27,21 @@ public class Cachorro extends Pet {
     @Override
     public void emitirSom() {
         System.out.println("🐕 " + getNome() + " (Cachorro) late: AU AU AU! Woof! Woof!");
+    }
+    
+    // ======================================
+    // MÉTODOS DA INTERFACE BRINCAVEL (PARTE 9)
+    // ======================================
+    @Override
+    public void brincar() {
+        System.out.println("🐕 " + getNome() + " está brincando de buscar a bolinha! 🎾");
+        setEnergia(getEnergia() - 15);
+        System.out.println("   Energia após brincar: " + getEnergia());
+    }
+    
+    @Override
+    public int tempoBrincada() {
+        return 30;  // Cachorro brinca por 30 minutos
     }
     
     @Override

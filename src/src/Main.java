@@ -20,82 +20,66 @@ public class Main {
 
         Tutor tutor = new Tutor(nomeTutor, telefone, email);
 
-        // ======================================
-        // TESTE 1: TENTAR CRIAR OBJETO DA CLASSE ABSTRATA
-        // ======================================
+       
         System.out.println("\n=========================================");
-        System.out.println("TESTE 1: TENTANDO CRIAR UM PET GENÉRICO");
+        System.out.println("🎯 TESTE DA INTERFACE BRINCAVEL 🎯");
         System.out.println("=========================================");
-        System.out.println("❌ A linha abaixo vai dar ERRO de compilação!");
-        System.out.println("   Pois Pet é uma classe ABSTRATA!");
+        System.out.println("Objetos DIFERENTES que implementam a MESMA interface!");
         
-        // Pet petGenerico = new Pet("Generico", 1, "Generico", tutor);
-        // ⬆️ DESCOMENTE ESSA LINHA PARA VER O ERRO!
         
-        System.out.println("\n✅ ERRO ESPERADO: 'Cannot instantiate the type Pet'");
-        System.out.println("   Isso prova que a classe está ABSTRATA!");
-
-        // ======================================
-        // TESTE 2: CRIAR OBJETOS DAS SUBCLASSES (FUNCIONA)
-        // ======================================
-        System.out.println("\n=========================================");
-        System.out.println("TESTE 2: CRIANDO OBJETOS DAS SUBCLASSES");
-        System.out.println("=========================================");
+        List<Brincavel> coisasParaBrincar = new ArrayList<>();
         
-        List<Pet> meusPets = new ArrayList<>();
-
-        System.out.println("\n--- Criando Cachorro ---");
+        System.out.println("\n--- Adicionando Cachorro (classe Pet) ---");
         Cachorro cachorro = new Cachorro("Rex", 3, "Cachorro", tutor, "Labrador");
-        meusPets.add(cachorro);
-
-        System.out.println("\n--- Criando Gato ---");
-        Gato gato = new Gato("Mimi", 2, "Gato", tutor, "Siamês");
-        meusPets.add(gato);
-
-        System.out.println("\n--- Criando Pássaro ---");
-        Passaro passaro = new Passaro("Piu", 1, "Pássaro", tutor, "Amarela");
-        meusPets.add(passaro);
+        coisasParaBrincar.add(cachorro);
         
-        // ======================================
-        // TESTE 3: POLIMORFISMO COM CLASSE ABSTRATA
-        // ======================================
+        System.out.println("\n--- Adicionando Criança (classe diferente) ---");
+        Crianca crianca = new Crianca("Joãozinho", 8);
+        coisasParaBrincar.add(crianca);
+        
+        System.out.println("\n--- Adicionando Brinquedo (classe diferente) ---");
+        Brinquedo brinquedo = new Brinquedo("Bola", "Esportivo");
+        coisasParaBrincar.add(brinquedo);
+        
+        
         System.out.println("\n=========================================");
-        System.out.println("TESTE 3: POLIMORFISMO COM CLASSE ABSTRATA");
+        System.out.println("🔄 CHAMANDO MÉTODOS DA INTERFACE (POLIMORFISMO)");
         System.out.println("=========================================");
-        System.out.println("A variável é do tipo Pet (abstrato), mas o objeto REAL é:");
+        System.out.println("Mesmo método brincar() se comporta DIFERENTE para cada objeto!\n");
         
-        for (Pet pet : meusPets) {
-            pet.emitirSom();  // Polimorfismo funcionando!
+        for (Brincavel item : coisasParaBrincar) {
+            item.brincar();
+            System.out.println("   ⏱️ Tempo médio de brincadeira: " + item.tempoBrincada() + " minutos");
+            System.out.println();
         }
         
-        // ======================================
-        // TESTE 4: MÉTODOS EXCLUSIVOS
-        // ======================================
+       
         System.out.println("\n=========================================");
-        System.out.println("TESTE 4: MÉTODOS EXCLUSIVOS DE CADA CLASSE");
+        System.out.println("📋 VERIFICANDO OS TIPOS REAIS");
         System.out.println("=========================================");
         
-        for (Pet pet : meusPets) {
-            if (pet instanceof Cachorro) {
-                ((Cachorro) pet).latir();
-            } else if (pet instanceof Gato) {
-                ((Gato) pet).miar();
-            } else if (pet instanceof Passaro) {
-                ((Passaro) pet).voar();
+        for (Brincavel item : coisasParaBrincar) {
+            if (item instanceof Cachorro) {
+                System.out.println("✅ " + ((Cachorro) item).getNome() + " é um Cachorro!");
+                ((Cachorro) item).latir();
+            } else if (item instanceof Crianca) {
+                System.out.println("✅ " + ((Crianca) item).getNome() + " é uma Criança!");
+                ((Crianca) item).estudar();
+            } else if (item instanceof Brinquedo) {
+                System.out.println("✅ " + ((Brinquedo) item).getNome() + " é um Brinquedo!");
             }
+            System.out.println();
         }
         
-        // ======================================
-        // CONCLUSÃO
-        // ======================================
+        
         System.out.println("\n=========================================");
-        System.out.println("✅ CLASSE ABSTRATA FUNCIONANDO!");
+        System.out.println("✅ INTERFACE FUNCIONANDO!");
         System.out.println("=========================================");
-        System.out.println("✓ Pet agora é abstract");
-        System.out.println("✓ Não podemos criar new Pet() - gera erro");
-        System.out.println("✓ Podemos criar new Cachorro(), new Gato(), new Passaro()");
-        System.out.println("✓ O método emitirSom() é abstrato e foi implementado em cada subclasse");
-        System.out.println("✓ Polimorfismo continua funcionando com classe abstrata!");
+        System.out.println("✓ Interface Brincavel foi criada");
+        System.out.println("✓ Cachorro, Crianca e Brinquedo implementam Brincavel");
+        System.out.println("✓ São classes de hierarquias DIFERENTES");
+        System.out.println("✓ Array/List da interface funcionou");
+        System.out.println("✓ Polimorfismo com interface: mesmo método, comportamentos diferentes!");
         
         scanner.close();
     }
