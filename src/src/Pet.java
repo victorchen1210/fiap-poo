@@ -1,6 +1,7 @@
 package src;
 
-public class Pet {
+// CLASSE ABSTRATA - Não pode ser instanciada diretamente
+public abstract class Pet {
     // Atributos
     private String nome;
     private int idade;
@@ -98,12 +99,13 @@ public class Pet {
         this.tutor = tutor;
     }
 
-    
-    public void emitirSom() {
-        System.out.println(nome + " está fazendo um som genérico de pet...");
-    }
+    // ======================================
+    // MÉTODO ABSTRATO (PARTE 8)
+    // Todas as subclasses DEVEM implementar este método
+    // ======================================
+    public abstract void emitirSom();
 
-    // Métodos comportamentais
+    // Métodos comportamentais (concretos)
     public void brincar() {
         System.out.println(nome + " está brincando 🐾");
         setEnergia(energia - 10);
